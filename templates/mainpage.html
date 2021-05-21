@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Main Page</title>
+    </head>
+    <body>
+        Welcome {{ username }}
+
+        <br>
+
+        This is the main page.
+        <p>
+            <a href = "{{ url_for('subscriptionpage', email = email) }}">
+                <button name = "subscriptionpage_button" type = "submit">Enter Subscription Page</button>
+            </a>
+        </p>
+
+        <p>
+            <a href = "{{ url_for('querypage', email = email) }}">
+                <button name = "querypage_button" type = "submit">Enter Query Page</button>
+            </a>
+        </p>
+
+        <br>
+
+        <a href = "{{ url_for('loginpage') }}">Logout</a>
+    </body>
+</html>

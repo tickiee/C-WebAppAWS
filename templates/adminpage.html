@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Admin Page</title>
+    </head>
+    <body>
+        <p>
+            <h1>Note: Unauthorised users having access to these functions will make me sad</h1>
+        </p>
+
+        <p>
+            <b><u><h3>Admin controls</h3></u></b>
+        </p>
+
+        <p>
+            <form action = "/createtable">
+                <button name = "createtable_button" type = "submit">Create table</button>
+            </form>
+        </p>
+
+        <p>
+            <form action = "/populatetable">
+                <button name = "populatetable_button" type = "submit">Populate table</button>
+            </form>
+        </p>
+
+        <p>
+            <form action = "/deletetable">
+                <button name = "deletetable_button" type = "submit">Delete table</button>
+            </form>
+        </p>
+
+        <p>
+            <form action = "/createbucket">
+                <button name = "createbucket_button" type = "submit">Create bucket</button>
+            </form>
+        </p>
+
+        <p>
+            <form action = "/fillbucket">
+                <button name = "fillbucket_button" type = "submit">Add images to bucket</button>
+            </form>
+        </p>
+
+        <p>
+            <form action = "/deletebucket">
+                <button name = "deletebucket_button" type = "submit">Delete bucket</button>
+            </form>
+        </p>
+
+        <br>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class = "box">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+        {% endwith %}
+
+        <br>
+
+        <form action = "/loginpage">
+            <button name = "login_page_button" type = submit>Log out</button>
+        </form>
+    </body>
+</html>

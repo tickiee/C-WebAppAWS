@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Query Results</title>
+    </head>
+    <body>
+        <h1>Query Results</h1>
+
+        <p>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div>
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+            {% endwith %}
+        </p>
+        
+        <p>
+            {% for item in items %}
+            ---
+            <form action = "/subscribe/{{ email }}/{{ scan_string }}" method = "post">
+                <p>
+                    <label for = "music_id">Music ID</label>
+                    <input type = "text" name = "music_id" value = "{{ item['music_id'] }}" size = "30" readonly = "readonly"/>
+                </p>
+
+                <p>
+                    <label for = "title">Title</label>
+                    <input type = "text" name = "title" value = "{{ item['title'] }}" size = "30" readonly = "readonly"/>
+                </p>
+
+                <p>
+                    <label for = "year">Year</label>
+                    <input type = "text" name = "year" value = "{{ item['year'] }}" size = "30" readonly = "readonly"/>
+                </p>
+
+                <p>
+                    <label for = "artist">Artist</label>
+                    <input type = "text" name = "artist" value = "{{ item['artist'] }}" size = "30" readonly = "readonly"/>
+                </p>
+
+                <p>
+                    <label for = "image">Image</label>
+                    <br>
+                    <img src = "https://musicimg.s3.amazonaws.com/{{ item['music_id'] }}.jpg" width = "120", height = "120"/>
+                </p>
+
+                <p>
+                    <button name = "subscribe_button" type = "submit">Subscribe</button>
+                </p>
+            </form>
+            ---
+            <br>
+            {% endfor %}
+        </p>
+        
+        <p>
+            <a href = "{{ url_for('querypage', email = email) }}">
+                <button name = "querypage_button" type = "submit">Return to Query Page</button>
+            </a>
+        </p>
+    </body>
+</html>

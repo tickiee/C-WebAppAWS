@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Page</title>
+    </head>
+    <body>
+        <h1>Login Page</h1>
+        
+        <form action = "/login" method = "post">
+            <p>
+                <label for = "email">Email</label>
+                <input type = "text" placeholder = "Enter Email" name = "email" size = "15" required>
+            </p>
+            <p>
+                <label for = "password">Password</label>
+                <input type = "password" placeholder = "Enter Password" name = "password" size = "15" required>
+            </p>
+
+            <button name = "login_button" type = "submit">Login</button>
+
+            <br>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class = "box">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+            {% endwith %}
+        </form>
+
+        <br>
+
+        <form action = "/registerpage">
+            <button name = "register_page_button" type = "submit">New user? Register here!</button>
+        </form>
+    </body>
+</html>
